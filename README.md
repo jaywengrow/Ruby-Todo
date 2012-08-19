@@ -28,3 +28,7 @@ $ ruby todo.rb done 1
 $ ruby todo.rb list
 0 paint the fence
 1 wash the car
+
+Currently, this app works only when operating within the same directory as the Ruby file.  So, in order to use this app right now, simply save "todo.rb" in a particular directory and then cd into that directory from the command line.  Then, run "ruby todo.rb" followed by one of the commands above to use the app.
+
+By design, the app will create a text file called "todo.txt" for saving the todo list if the text file doesn't already exist within the directory.
