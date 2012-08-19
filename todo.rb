@@ -36,7 +36,7 @@ case ARGV[0]
   	  lines.each do |line|
   	    puts "#{line_number += 1}: #{line}"
   	  end
-  when "delete"
+  when "done"
 	  value = ARGV[1].to_i - 1
   	lines.delete_at(value)
   	File.open("todo.txt", "w")
