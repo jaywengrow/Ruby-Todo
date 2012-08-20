@@ -22,7 +22,7 @@ case command
   	File.open("todo.txt", "w")
   	create.puts lines
   else 
-  	puts "You have not entered a valid command. Please use 'add', 'list', or 'delete'."
+  	puts "You have not entered a valid command. Please use 'add', 'list', or 'done'."
 end
 
 
