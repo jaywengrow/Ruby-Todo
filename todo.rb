@@ -2,14 +2,16 @@ create = File.open("todo.txt", "a")
 lines = File.readlines("todo.txt")
 command = ARGV[0]
 text = ARGV[1]
+done = File.open("todo_done.txt", "a")
+done_lines = File.readlines("todo_done.txt")
 
 case command
   when "add"
-	  create.puts text unless text.nil?
+	  create.puts text + ' | ' + (Time.now).to_s unless text.nil?
   	  if text.nil?
   	    puts "Todo not added.  You must specify a value for your todo before it can be saved."
   	  else
-  	    puts "added #{text} to the todo file"
+  	    puts "added #{text} #{Time.now} to the todo file"
   	  end	
   when "list"
 	  line_number = 0
@@ -18,11 +20,17 @@ case command
   	  end
   when "done"
 	  value = text.to_i - 1
-  	lines.delete_at(value)
+  	todo_done = lines.delete_at(value)
   	File.open("todo.txt", "w")
   	create.puts lines
+  	done.puts todo_done
+  when "list_done"
+    line_number = 0
+  	  done_lines.each do |line|
+  	    puts "#{line_number += 1}: #{line}"
+	    end
   else 
-  	puts "You have not entered a valid command. Please use 'add', 'list', or 'done'."
+  	puts "You have not entered a valid command. Please use 'add', 'list', 'done', or 'list_done'."
 end
 
 
