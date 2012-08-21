@@ -29,6 +29,12 @@ case command
   	  done_lines.each do |line|
   	    puts "#{line_number += 1}: #{line}"
 	    end
+	when "help"
+	  commands = ['add', 'list', 'done', 'list_done']
+	  puts "Here is a list of commands:"
+	    commands.each do |command|
+	      puts command
+      end
   else 
   	puts "You have not entered a valid command. Please use 'add', 'list', 'done', or 'list_done'."
 end
